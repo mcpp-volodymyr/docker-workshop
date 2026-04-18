@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Results</title>
+</head>
+<body>
+    <h1>Poll Results</h1>
+
+    <p><strong>{{ question }}</strong></p>
+    <p>Total votes: {{ total }}</p>
+
+    <ul>
+        {% for item in results %}
+            <li>
+                {{ item.option }} — {{ item.count }} vote(s) — {{ item.percentage }}%
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/">Back to poll</a></p>
+</body>
+</html>
+

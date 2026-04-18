@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Experience Poll</title>
+</head>
+<body>
+    <h1>Docker Experience Poll</h1>
+
+    <p><strong>How much experience do you have with Docker?</strong></p>
+
+    <form action="/vote" method="post">
+        {% for option in options %}
+            <div>
+                <label>
+                    <input type="radio" name="option" value="{{ option }}" required>
+                    {{ option }}
+                </label>
+            </div>
+        {% endfor %}
+
+        <br>
+        <button type="submit">Vote</button>
+    </form>
+
+    <p><a href="/results">View results</a></p>
+</body>
+</html>
+
