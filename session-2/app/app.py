@@ -65,15 +65,11 @@ def results():
     with engine.connect() as conn:
         total = conn.execute(text("SELECT COUNT(*) FROM votes")).scalar_one()
 
-        rows = conn.execute(
-            text(
-                """
+        rows = conn.execute(text("""
                 SELECT option_name, COUNT(*) AS count
                 FROM votes
                 GROUP BY option_name
-                """
-            )
-        ).all()
+                """)).all()
 
     counts = {option: 0 for option in OPTIONS}
     for option_name, count in rows:
@@ -104,4 +100,3 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)
 else:
     init_db()
-

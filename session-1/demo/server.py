@@ -24,4 +24,3 @@ if __name__ == "__main__":
     server = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"Server running on http://{HOST}:{PORT}")
     server.serve_forever()
-
